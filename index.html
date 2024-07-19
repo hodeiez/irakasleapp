@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="eu">
+<html>
+
+<head>
+
+	<meta name="title" content="irakasle_app (irakasleentzako tresnak)">
+	<meta name="description"
+		content="Hezkuntza aplikazioak: talde-sorgailua, kronometroa, atzerako kontaketa eta gehiago arbel digitaleko klase dinamikoetarako. Cookierik gabe, publizitaterik gabe. Azkarra eta erabilerraza.">
+	<meta name="keywords"
+		content="hezkuntza aplikazioak, arbel digitala, lineako irakasleak, klase interaktiboak, talde-sortzailea, eskoletarako kronometroa, jardueretarako atzerako kontaketa, ausazko zenbakien sortzailea, irakasleentzako baliabideak, publizitaterik gabeko irakaskuntza, cookierik gabeko ikasgela, elkarlaneko ikaskuntza, irakasleentzako baliabideak, hezkuntza-teknologia, jarduera dinamikoak ikasgelan">
+	<meta name="robots" content="index, follow">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta property="og:locale" content="eu_ES" />
+	<link rel="canonical" href="https://www.irakasle.app" />
+
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="manifest" href="/site.webmanifest">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+	<title>IRAKASLE.APP</title>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<style>
+		.copyleft {
+			display: inline-block;
+			transform: rotate(180deg);
+		}
+
+		body {
+			font-family: Arial, sans-serif;
+			padding-top: 50px;
+		}
+
+
+
+		input[type=number] {
+			font-size: 2em;
+			padding: 10px;
+		}
+
+		button {
+			font-family: inherit;
+			font-weight: 500;
+			font-size: 16px;
+			padding: 0.7em 1.4em 0.7em 1.1em;
+			color: white;
+			background: #ad5389;
+			background: linear-gradient(0deg, rgba(20, 167, 62, 1) 0%, rgba(102, 247, 113, 1) 100%);
+			border: none;
+			box-shadow: 0 0.7em 1.5em -0.5em #14a73e98;
+			letter-spacing: 0.05em;
+			border-radius: 20em;
+			cursor: pointer;
+			user-select: none;
+			-webkit-user-select: none;
+			touch-action: manipulation;
+		}
+
+		button:hover {
+			background: #69c;
+			background: linear-gradient(0deg, rgba(102, 247, 113, 1) 0%, rgba(20, 167, 62, 1) 100%);
+			box-shadow: 0 0.7em 1.5em -0.5em #14a73e98;
+		}
+
+		#burua {
+			position: absolute;
+			top: -2px;
+			left: 10px;
+			width: 98%;
+			background-color: #4CAF50;
+			text-align: center;
+			color: #FFFFFF;
+			background: #4CAF50;
+			text-shadow: 0 1px 0 #CCCCCC, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9, 0 5px 0 #aaa, 0 6px 1px rgba(0, 0, 0, .1), 0 0 5px rgba(0, 0, 0, .1), 0 1px 3px rgba(0, 0, 0, .3), 0 3px 5px rgba(0, 0, 0, .2), 0 5px 10px rgba(0, 0, 0, .25), 0 10px 10px rgba(0, 0, 0, .2), 0 20px 20px rgba(0, 0, 0, .15);
+			color: #FFFFFF;
+			background: #4CAF50;
+		}
+
+		.berdeArgie {
+			background-color: #E4ffe5;
+		}
+
+		/*
+		#zutabe1 {
+			position:absolute;
+			top:60px;
+			left:10px;
+			width:350px;
+			margin-top:10px;
+			background-color: #E4ffe5;
+			text-align: center;
+                        color: #000000;
+                        background: #E4ffe5;
+                        text-shadow: 2px 2px 0px #FFFFFF, 5px 4px 0px rgba(0,0,0,0.15);
+                        color: #000000;
+		}
+
+		#oina {
+			position:absolute;
+                        z-index: 2;
+			top:70px;
+			left:10px;
+			width:98%;
+			background-color: #E4ffe5;
+			text-align: center;
+			color: black;
+		}
+
+		#orrioina {
+			position:absolute;
+                        z-index: 0;
+			top:915px;
+			left:10px;
+			width:98%;
+			background-color: #E4ffe5;
+			text-align: center;
+			color: black;
+		}
+		#zutabe2 {
+			position:absolute;
+			margin-left:355px;
+			margin-right:20px;
+			margin-top:35px;
+		}
+			*/
+		#zutabe3 {
+		/* 	position:absolute;
+			margin-left:355px;
+			margin-right:20px;
+			margin-top:390px; */
+			font-size: 180px;
+                        color: #FFFFFF;
+                        background: #FFFFFF;
+                        text-shadow: 2px 2px 0 #4CAF50, 2px -2px 0 #4CAF50, -2px 2px 0 #4CAF50, -2px -2px 0 #4CAF50, 2px 0px 0 #4CAF50, 0px 2px 0 #4CAF50, -2px 0px 0 #4CAF50, 0px -2px 0 #4CAF50;
+                    
+			
+		}
+		#zutabe4 {
+                        color: #4CAF50;
+		/* 	position:absolute;
+                        margin-left:355px;
+			margin-right:20px;
+			margin-top:590px; */
+			font-size: 180px;
+		}
+			
+	</style>
+</head>
+
+<body>
+
+
+	<div id="burua">
+		<h1> <i class="material-icons">pending_actions</i> irakasle-app - 0.91 beta</h1>
+	</div>
+	<div id="oina" class="berdeArgie text-center">
+		Cookie eta Publizitate gabeko gunea.
+
+	</div>
+	<div class="text-center">
+		<p>
+		<h2>IRAKASLE.APP</h2> ikasgelan askotan erabiltzen ditugun oinarrizko aplikazio multzo super-sinple bat da.<br>
+		Sarean publizitatez beteriko hainbat aukera daude, gainera ez dute euskarazko aukerarik.<br> Horregaitik
+		ikasgelarako zerbait egokiagoa nahi genuenez web hau sortu eta martxan jarri dugu, irakasleek sortua
+		irakasleentzako.
+
+		<br>
+		<p><i class="material-icons">touch_app</i> ERABILERA: Ezkerraldean dauden botoi berdeetan klikatu parametroak
+			nahi bezala aldatu ondoren.</p>
+		<p><i class="material-icons">refresh</i> Ezabatzeko orrialde hau birkargatu dezakezu.</p>
+		<p> <span class="copyleft">&copy;</span> Web hau eta erabilitako HTML,CSS eta JS kodea Copyleft lizentziapean
+			argitaratzen da, edonork berreabili edo modifika dezake -www.irakasle.app- autoretza aitortuz.
+		<p><i class="material-icons">outgoing_mail</i> Aplikazioa hobetzeko bidali zure iruzkinak info@irakasle.app
+			helbidera.</p>
+
+		<p> ESKERRIK ASKO!</p>
+	</div>
+	<div class="container">
+		<div class="taldekSortu row py-3">
+			<div class="col-sm">
+				<h2><i class="material-icons">diversity_3</i> Talde Sortzailea</h2>
+				<form>
+					<label for="izenak">Ikasleen izenak:</label> </br>
+					<textarea id="izenak" rows="10">Aratz	
+Jon	
+Maddi	
+Harri	
+Naroa	
+Iker	
+Maria	
+Markel	
+Leire
+Laida</textarea> </br>
+
+					<label for="talde-integranteak">Taldeko kide kopurua:</label>
+					<select id="talde-integranteak">
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+					</select>
+
+					<button type="button" onclick="taldeakSortu()">Taldeak Sortu</button><br>
+					<button id="randomNameBtn" type="button" onclick="selectRandomName()">Ausazko aukeraketa</button>
+				</form>
+
+
+			</div>
+			<div class="col-sm">
+				<div id="zutabe2">
+					<!-- Hemen taldeen zerrenda erakutsiko da -->
+				</div>
+			</div>
+
+		</div>
+		<div class="atzeraKonta row py-3">
+			<div class="atzeraKontaForm col-sm">
+				<h2> <i class="material-icons">update</i> Atzera Kontaketa</h2>
+				<label for="minutes">Minutuak:</label>
+				<input type="number" id="minutes" min="0" value="1" style="width:3em;height:1px;font-size:1em">
+				<label for="seconds">Segunduak:</label>
+				<select id="seconds">
+					<option value="0">0</option>
+					<option value="10">10</option>
+					<option value="20">20</option>
+					<option value="30">30</option>
+					<option value="40">40</option>
+					<option value="50">50</option>
+				</select>
+				<button id="startBtn">Hasi</button>
+				</br>
+				<h2><i class="material-icons">timer</i> Kronometroa </h2>
+				<button id="hasieraGeldituBtn">Hasiera</button>
+				<button id="berrabiaraziBtn">Reset</button>
+			</div>
+			<div class="col-sm">
+				<div id="zutabe3">
+					<!-- Hemen atzerakontua ikusiko da -->
+				</div>
+			</div>
+		</div>
+		<div class="ausazkoa row py-3">
+				<div class="ausazkoForm col-sm">
+					<h2><i class="material-icons">casino</i> Ausazko zenbakia</h2>
+					<label for="minZenb">Txikiena:</label>
+					<input type="number" id="minZenb" min="0" value="0" style="width:3em;height:1px;font-size:1em">
+					<br><br>
+					<label for="maxZenb">Handiena:</label>
+					<input type="number" id="maxZenb" min="0" value="100" style="width:3em;height:1px;font-size:1em">
+					<br><br>
+					<button id="sortuBtn">Sortu ausazko zenbakia</button>
+					<br><br>
+				</div>
+				<div class="col-sm">
+					<div id="zutabe4">
+						<!-- ausazko zenbakia erakusteko-->
+					</div>
+				</div>
+		</div>
+
+
+
+	</div>
+	<div id="zutabe1">
+
+		<!-- <h2><i class="material-icons">diversity_3</i> Talde Sortzailea</h2> 
+	<form>
+		<label for="izenak">Ikasleen izenak:</label> </br>
+		<textarea id="izenak" rows="10">Aratz	
+Jon	
+Maddi	
+Harri	
+Naroa	
+Iker	
+Maria	
+Markel	
+Leire
+Laida</textarea> </br>
+
+		<label for="talde-integranteak">Taldeko kide kopurua:</label>
+		<select id="talde-integranteak">
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+			<option value="6">6</option>
+			<option value="7">7</option>
+			<option value="8">8</option>
+			<option value="9">9</option>
+			<option value="10">10</option>
+		</select>
+
+		<button type="button"  onclick="taldeakSortu()">Taldeak Sortu</button><br>
+                <button id="randomNameBtn"   type="button"  onclick="selectRandomName()">Ausazko aukeraketa</button>
+	</form> -->
+		<hr>
+<!-- 		<h2> <i class="material-icons">update</i> Atzera Kontaketa</h2>
+		<label for="minutes">Minutuak:</label>
+		<input type="number" id="minutes" min="0" value="1" style="width:3em;height:1px;font-size:1em">
+		<label for="seconds">Segunduak:</label>
+		<select id="seconds">
+			<option value="0">0</option>
+			<option value="10">10</option>
+			<option value="20">20</option>
+			<option value="30">30</option>
+			<option value="40">40</option>
+			<option value="50">50</option>
+		</select>
+		<button id="startBtn">Hasi</button>
+		</br>
+		<h2><i class="material-icons">timer</i> Kronometroa </h2>
+		<button id="hasieraGeldituBtn">Hasiera</button>
+		<button id="berrabiaraziBtn">Reset</button> -->
+
+		<hr>
+<!-- 		<h2><i class="material-icons">casino</i> Ausazko zenbakia</h2>
+		<label for="minZenb">Txikiena:</label>
+		<input type="number" id="minZenb" min="0" value="0" style="width:3em;height:1px;font-size:1em">
+		<br><br>
+		<label for="maxZenb">Handiena:</label>
+		<input type="number" id="maxZenb" min="0" value="100" style="width:3em;height:1px;font-size:1em">
+		<br><br>
+		<button id="sortuBtn">Sortu ausazko zenbakia</button>
+		<br><br> -->
+
+	</div>
+	<!-- 	<div id="zutabe2">
+		Hemen taldeen zerrenda erakutsiko da 
+
+
+
+
+
+	</div> -->
+<!-- 	<div id="zutabe3">
+		 Hemen atzerakontua ikusiko da 
+	</div> 
+	<div id="zutabe4">
+		<!--ausazko zenbakia erakusteko
+	</div> -->
+	<footer id="orrioina" class="berdeArgie text-center">
+		<span class="copyleft">&copy;</span> 2024 - www.irakasle.app <br>
+		<h6>
+			Hezkuntza aplikazioak: talde-sorgailua, kronometroa, atzerako kontaketa eta gehiago arbel digitaleko klase
+			dinamikoetarako. Cookierik gabe, publizitaterik gabe. Azkarra eta erabilerraza.
+			hezkuntza aplikazioak, arbel digitala, lineako irakasleak, klase interaktiboak, talde-sortzailea,
+			eskoletarako kronometroa, jardueretarako atzerako kontaketa, ausazko zenbakien sortzailea, irakasleentzako
+			baliabideak, publizitaterik gabeko irakaskuntza, cookierik gabeko ikasgela, elkarlaneko ikaskuntza,
+			irakasleentzako baliabideak, hezkuntza-teknologia, jarduera dinamikoak ikasgelan
+		</h6>
+
+
+	</footer>
+
+	<script>
+		function taldeakSortu() {
+			var izenak = document.getElementById("izenak").value.trim().split("\n");
+			var taldeIntegranteak = parseInt(document.getElementById("talde-integranteak").value);
+			var taldeak = [];
+
+			// Izenak taldeetan banatu
+			while (izenak.length > 0) {
+				var taldea = [];
+				for (var i = 0; i < taldeIntegranteak; i++) {
+					if (izenak.length > 0) {
+						var aleatoriokoIndizea = Math.floor(Math.random() * izenak.length);
+						taldea.push(izenak[aleatoriokoIndizea].trim());
+						izenak.splice(aleatoriokoIndizea, 1);
+					}
+				}
+				taldeak.push(taldea);
+			}
+
+			// Taldeen zerrenda erakutsi orrialdean
+			var taldeenHtml = "";
+			for (var i = 0; i < taldeak.length; i++) {
+				taldeenHtml += "<b>" + (i + 1) + ". Taldea:</b>";
+				taldeenHtml += " ";
+				for (var j = 0; j < taldeak[i].length; j++) {
+					taldeenHtml += " " + taldeak[i][j] + " | ";
+				}
+				taldeenHtml += "</br><hr> ";
+			}
+			document.getElementById("zutabe2").innerHTML = taldeenHtml;
+		}
+
+		// ikasle izena ausaz aukeratu
+		function selectRandomName() {
+			var izenak = document.getElementById("izenak").value.trim().split("\n");
+			var randomIndex = Math.floor(Math.random() * izenak.length);
+			var randomName = izenak[randomIndex];
+			alert("Aukeratutako ikaslea: " + randomName);
+			//document.getElementById("zutabe3").innerHTML = "Aukeratutako ikaslea: " + randomName;
+		}
+
+		// Atzera kontaketa
+		let timer;
+		let timeLeft;
+		let startBtn = document.getElementById("startBtn");
+
+		function startTimer() {
+			geldituKronometroa()
+			let minutes = parseInt(document.getElementById("minutes").value);
+			let seconds = parseInt(document.getElementById("seconds").value);
+			timeLeft = minutes * 60 + seconds;
+
+			timer = setInterval(function () {
+				timeLeft--;
+				let minutesLeft = Math.floor(timeLeft / 60);
+				let secondsLeft = timeLeft % 60;
+				document.getElementById("zutabe3").innerHTML = `${minutesLeft}:${secondsLeft < 10 ? "0" : ""}${secondsLeft}`;
+				if (timeLeft <= 0) {
+					clearInterval(timer);
+					document.getElementById("zutabe3").innerHTML = "00:00";
+					startBtn.innerHTML = "Berabiarazi";
+				}
+			}, 1000);
+
+			startBtn.removeEventListener("click", startTimer);
+			startBtn.addEventListener("click", resetTimer);
+			startBtn.innerHTML = "Gelditu";
+		}
+
+		function resetTimer() {
+			geldituKronometroa()
+			clearInterval(timer);
+			document.getElementById("zutabe3").innerHTML = "00:00";
+			startBtn.removeEventListener("click", resetTimer);
+			startBtn.addEventListener("click", startTimer);
+			startBtn.innerHTML = "Hasi";
+		}
+
+		startBtn.addEventListener("click", startTimer);
+		// kronometroa 
+		let kronometroa;
+		let denbora = 0;
+		let hasieraGeldituBtn = document.getElementById("hasieraGeldituBtn");
+		let berrabiaraziBtn = document.getElementById("berrabiaraziBtn");
+		let kronometroaErakutsi = document.getElementById("kronometroa");
+
+		function hasieraKronometroa() {
+			resetTimer();
+			hasieraGeldituBtn.innerHTML = "Gelditu";
+			kronometroa = setInterval(function () {
+				denbora++;
+				let minutuak = Math.floor(denbora / 60);
+				let segunduak = denbora % 60;
+				document.getElementById("zutabe3").innerHTML = `${minutuak < 10 ? "0" : ""}${minutuak}:${segunduak < 10 ? "0" : ""}${segunduak}`;
+			}, 1000);
+		}
+
+		function geldituKronometroa() {
+			hasieraGeldituBtn.innerHTML = "Hasiera";
+			clearInterval(kronometroa);
+		}
+
+		function berrabiaraziKronometroa() {
+			resetTimer()
+			hasieraGeldituBtn.innerHTML = "Hasiera";
+			clearInterval(kronometroa);
+			denbora = 0;
+			document.getElementById("zutabe3").innerHTML = "00:00";
+		}
+
+		hasieraGeldituBtn.addEventListener("click", function () {
+			if (hasieraGeldituBtn.innerHTML === "Hasiera") {
+				hasieraKronometroa();
+			} else {
+				geldituKronometroa();
+			}
+		});
+
+		berrabiaraziBtn.addEventListener("click", berrabiaraziKronometroa);
+
+		// Ausazko zenbakia 
+		let minZenb = document.getElementById("minZenb");
+		let maxZenb = document.getElementById("maxZenb");
+		let sortuBtn = document.getElementById("sortuBtn");
+		let emaitza = document.getElementById("emaitza");
+
+		sortuBtn.addEventListener("click", function () {
+			let min = parseInt(minZenb.value);
+			let max = parseInt(maxZenb.value);
+			let ausazkoZenbakia = Math.floor(Math.random() * (max - min + 1)) + min;
+			document.getElementById("zutabe4").innerHTML = ` ${ausazkoZenbakia}`;
+		});
+
+
+	</script>
+
+
+</body>
+
+</html>
