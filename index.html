@@ -68,8 +68,7 @@
 		#burua {
 			position: absolute;
 			top: -2px;
-			left: 10px;
-			width: 98%;
+			width: 100%;
 			background-color: #4CAF50;
 			text-align: center;
 			color: #FFFFFF;
@@ -80,6 +79,10 @@
 		}
 
 		.berdeArgie {
+			background-color: #E4ffe5;
+		}
+
+		.berdeAtzea {
 			background-color: #E4ffe5;
 		}
 
@@ -127,30 +130,31 @@
 		}
 			*/
 		#zutabe3 {
-		/* 	position:absolute;
+			/* 	position:absolute;
 			margin-left:355px;
 			margin-right:20px;
 			margin-top:390px; */
 			font-size: 180px;
-                        color: #FFFFFF;
-                        background: #FFFFFF;
-                        text-shadow: 2px 2px 0 #4CAF50, 2px -2px 0 #4CAF50, -2px 2px 0 #4CAF50, -2px -2px 0 #4CAF50, 2px 0px 0 #4CAF50, 0px 2px 0 #4CAF50, -2px 0px 0 #4CAF50, 0px -2px 0 #4CAF50;
-                    
-			
+			color: #FFFFFF;
+			background: #FFFFFF;
+			text-shadow: 2px 2px 0 #4CAF50, 2px -2px 0 #4CAF50, -2px 2px 0 #4CAF50, -2px -2px 0 #4CAF50, 2px 0px 0 #4CAF50, 0px 2px 0 #4CAF50, -2px 0px 0 #4CAF50, 0px -2px 0 #4CAF50;
+
+
 		}
+
 		#zutabe4 {
-                        color: #4CAF50;
-		/* 	position:absolute;
+			color: #4CAF50;
+			/* 	position:absolute;
                         margin-left:355px;
 			margin-right:20px;
 			margin-top:590px; */
 			font-size: 180px;
 		}
-			
 	</style>
 </head>
 
 <body>
+
 
 
 	<div id="burua">
@@ -160,27 +164,31 @@
 		Cookie eta Publizitate gabeko gunea.
 
 	</div>
-	<div class="text-center">
-		<p>
-		<h2>IRAKASLE.APP</h2> ikasgelan askotan erabiltzen ditugun oinarrizko aplikazio multzo super-sinple bat da.<br>
-		Sarean publizitatez beteriko hainbat aukera daude, gainera ez dute euskarazko aukerarik.<br> Horregaitik
-		ikasgelarako zerbait egokiagoa nahi genuenez web hau sortu eta martxan jarri dugu, irakasleek sortua
-		irakasleentzako.
-
-		<br>
-		<p><i class="material-icons">touch_app</i> ERABILERA: Ezkerraldean dauden botoi berdeetan klikatu parametroak
-			nahi bezala aldatu ondoren.</p>
-		<p><i class="material-icons">refresh</i> Ezabatzeko orrialde hau birkargatu dezakezu.</p>
-		<p> <span class="copyleft">&copy;</span> Web hau eta erabilitako HTML,CSS eta JS kodea Copyleft lizentziapean
-			argitaratzen da, edonork berreabili edo modifika dezake -www.irakasle.app- autoretza aitortuz.
-		<p><i class="material-icons">outgoing_mail</i> Aplikazioa hobetzeko bidali zure iruzkinak info@irakasle.app
-			helbidera.</p>
-
-		<p> ESKERRIK ASKO!</p>
-	</div>
 	<div class="container">
-		<div class="taldekSortu row py-3">
-			<div class="col-sm">
+		<div class="text-center">
+			<p>
+			<h2>IRAKASLE.APP</h2> ikasgelan askotan erabiltzen ditugun oinarrizko aplikazio multzo super-sinple bat
+			da.<br>
+			Sarean publizitatez beteriko hainbat aukera daude, gainera ez dute euskarazko aukerarik.<br> Horregaitik
+			ikasgelarako zerbait egokiagoa nahi genuenez web hau sortu eta martxan jarri dugu, irakasleek sortua
+			irakasleentzako.
+
+			<br>
+			<p><i class="material-icons">touch_app</i> ERABILERA: Ezkerraldean dauden botoi berdeetan klikatu
+				parametroak
+				nahi bezala aldatu ondoren.</p>
+			<p><i class="material-icons">refresh</i> Ezabatzeko orrialde hau birkargatu dezakezu.</p>
+			<p> <span class="copyleft">&copy;</span> Web hau eta erabilitako HTML,CSS eta JS kodea Copyleft
+				lizentziapean
+				argitaratzen da, edonork berreabili edo modifika dezake -www.irakasle.app- autoretza aitortuz.
+			<p><i class="material-icons">outgoing_mail</i> Aplikazioa hobetzeko bidali zure iruzkinak info@irakasle.app
+				helbidera.</p>
+
+			<p> ESKERRIK ASKO!</p>
+		</div>
+
+		<div class="taldekSortu row py-3 ">
+			<div class=" col-md-6 m-auto text-center berdeAtzea">
 				<h2><i class="material-icons">diversity_3</i> Talde Sortzailea</h2>
 				<form>
 					<label for="izenak">Ikasleen izenak:</label> </br>
@@ -214,15 +222,15 @@ Laida</textarea> </br>
 
 
 			</div>
-			<div class="col-sm">
-				<div id="zutabe2">
-					<!-- Hemen taldeen zerrenda erakutsiko da -->
-				</div>
+			<div id="zutabe2" class="col-md-6 m-auto">
+
+				<!-- Hemen taldeen zerrenda erakutsiko da -->
+
 			</div>
 
 		</div>
-		<div class="atzeraKonta row py-3">
-			<div class="atzeraKontaForm col-sm">
+		<div class="atzeraKonta row py-3 ">
+			<div class="atzeraKontaForm col-md-6 m-auto text-center berdeAtzea">
 				<h2> <i class="material-icons">update</i> Atzera Kontaketa</h2>
 				<label for="minutes">Minutuak:</label>
 				<input type="number" id="minutes" min="0" value="1" style="width:3em;height:1px;font-size:1em">
@@ -241,112 +249,38 @@ Laida</textarea> </br>
 				<button id="hasieraGeldituBtn">Hasiera</button>
 				<button id="berrabiaraziBtn">Reset</button>
 			</div>
-			<div class="col-sm">
+			<div class="col-md-6 m-auto">
 				<div id="zutabe3">
 					<!-- Hemen atzerakontua ikusiko da -->
 				</div>
 			</div>
 		</div>
-		<div class="ausazkoa row py-3">
-				<div class="ausazkoForm col-sm">
-					<h2><i class="material-icons">casino</i> Ausazko zenbakia</h2>
-					<label for="minZenb">Txikiena:</label>
-					<input type="number" id="minZenb" min="0" value="0" style="width:3em;height:1px;font-size:1em">
-					<br><br>
-					<label for="maxZenb">Handiena:</label>
-					<input type="number" id="maxZenb" min="0" value="100" style="width:3em;height:1px;font-size:1em">
-					<br><br>
-					<button id="sortuBtn">Sortu ausazko zenbakia</button>
-					<br><br>
+		<div class="ausazkoa row py-3 ">
+			<div class="ausazkoForm col-md-6 m-auto text-center berdeAtzea">
+				<h2><i class="material-icons">casino</i> Ausazko zenbakia</h2>
+				<label for="minZenb">Txikiena:</label>
+				<input type="number" id="minZenb" min="0" value="0" style="width:3em;height:1px;font-size:1em">
+				<br><br>
+				<label for="maxZenb">Handiena:</label>
+				<input type="number" id="maxZenb" min="0" value="100" style="width:3em;height:1px;font-size:1em">
+				<br><br>
+				<button id="sortuBtn">Sortu ausazko zenbakia</button>
+				<br><br>
+			</div>
+			<div class="col-md-6 m-auto">
+				<div id="zutabe4">
+					<!-- ausazko zenbakia erakusteko-->
 				</div>
-				<div class="col-sm">
-					<div id="zutabe4">
-						<!-- ausazko zenbakia erakusteko-->
-					</div>
-				</div>
+			</div>
 		</div>
 
 
 
-	</div>
-	<div id="zutabe1">
 
-		<!-- <h2><i class="material-icons">diversity_3</i> Talde Sortzailea</h2> 
-	<form>
-		<label for="izenak">Ikasleen izenak:</label> </br>
-		<textarea id="izenak" rows="10">Aratz	
-Jon	
-Maddi	
-Harri	
-Naroa	
-Iker	
-Maria	
-Markel	
-Leire
-Laida</textarea> </br>
 
-		<label for="talde-integranteak">Taldeko kide kopurua:</label>
-		<select id="talde-integranteak">
-			<option value="2">2</option>
-			<option value="3">3</option>
-			<option value="4">4</option>
-			<option value="5">5</option>
-			<option value="6">6</option>
-			<option value="7">7</option>
-			<option value="8">8</option>
-			<option value="9">9</option>
-			<option value="10">10</option>
-		</select>
-
-		<button type="button"  onclick="taldeakSortu()">Taldeak Sortu</button><br>
-                <button id="randomNameBtn"   type="button"  onclick="selectRandomName()">Ausazko aukeraketa</button>
-	</form> -->
-		<hr>
-<!-- 		<h2> <i class="material-icons">update</i> Atzera Kontaketa</h2>
-		<label for="minutes">Minutuak:</label>
-		<input type="number" id="minutes" min="0" value="1" style="width:3em;height:1px;font-size:1em">
-		<label for="seconds">Segunduak:</label>
-		<select id="seconds">
-			<option value="0">0</option>
-			<option value="10">10</option>
-			<option value="20">20</option>
-			<option value="30">30</option>
-			<option value="40">40</option>
-			<option value="50">50</option>
-		</select>
-		<button id="startBtn">Hasi</button>
-		</br>
-		<h2><i class="material-icons">timer</i> Kronometroa </h2>
-		<button id="hasieraGeldituBtn">Hasiera</button>
-		<button id="berrabiaraziBtn">Reset</button> -->
-
-		<hr>
-<!-- 		<h2><i class="material-icons">casino</i> Ausazko zenbakia</h2>
-		<label for="minZenb">Txikiena:</label>
-		<input type="number" id="minZenb" min="0" value="0" style="width:3em;height:1px;font-size:1em">
-		<br><br>
-		<label for="maxZenb">Handiena:</label>
-		<input type="number" id="maxZenb" min="0" value="100" style="width:3em;height:1px;font-size:1em">
-		<br><br>
-		<button id="sortuBtn">Sortu ausazko zenbakia</button>
-		<br><br> -->
 
 	</div>
-	<!-- 	<div id="zutabe2">
-		Hemen taldeen zerrenda erakutsiko da 
-
-
-
-
-
-	</div> -->
-<!-- 	<div id="zutabe3">
-		 Hemen atzerakontua ikusiko da 
-	</div> 
-	<div id="zutabe4">
-		<!--ausazko zenbakia erakusteko
-	</div> -->
-	<footer id="orrioina" class="berdeArgie text-center">
+	<footer id="orrioina" class="berdeArgie text-center p-0">
 		<span class="copyleft">&copy;</span> 2024 - www.irakasle.app <br>
 		<h6>
 			Hezkuntza aplikazioak: talde-sorgailua, kronometroa, atzerako kontaketa eta gehiago arbel digitaleko klase
