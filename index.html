@@ -11,7 +11,7 @@
 	<meta name="robots" content="index, follow">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<meta property="og:locale" content="eu_ES" />
-	<meta name="viewport" content="width=device-width"/>
+	<meta name="viewport" content="width=device-width" />
 	<link rel="canonical" href="https://www.irakasle.app" />
 
 	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -33,13 +33,6 @@
 			font-family: Arial, sans-serif;
 			padding-top: 50px;
 		}
-
-
-
-		/* input[type=number] {
-			font-size: 2em;
-			padding: 10px;
-		} */
 
 		button {
 			font-family: inherit;
@@ -96,6 +89,13 @@
 
 		}
 
+		@media only screen and (max-width:600px) {
+			#zutabe3 {
+				font-size: 10em;
+			}
+
+		}
+
 		#zutabe4 {
 			color: #4CAF50;
 			font-size: 12em;
@@ -103,7 +103,7 @@
 	</style>
 </head>
 
-<body >
+<body>
 
 	<div id="burua">
 		<h1> <i class="material-icons">pending_actions</i> irakasle-app - 0.91 beta</h1>
@@ -150,23 +150,23 @@ Maria
 Markel	
 Leire
 Laida</textarea> </br>
-							
+
 					<label for="talde-integranteak">Taldeko kide kopurua:</label>
 					<div class="row justify-content-center py-2">
-					<div class="col-5">
-					<select id="talde-integranteak" class="form-control text-center">
-						<option value="2">2</option>
-						<option value="3">3</option>
-						<option value="4">4</option>
-						<option value="5">5</option>
-						<option value="6">6</option>
-						<option value="7">7</option>
-						<option value="8">8</option>
-						<option value="9">9</option>
-						<option value="10">10</option>
-					</select>
-				</div>
-				</div>
+						<div class="col-5">
+							<select id="talde-integranteak" class="form-select text-center">
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+								<option value="6">6</option>
+								<option value="7">7</option>
+								<option value="8">8</option>
+								<option value="9">9</option>
+								<option value="10">10</option>
+							</select>
+						</div>
+					</div>
 					<button type="button" onclick="taldeakSortu()">Taldeak Sortu</button><br>
 					<button id="randomNameBtn" type="button" onclick="selectRandomName()">Ausazko aukeraketa</button>
 				</form>
@@ -184,23 +184,23 @@ Laida</textarea> </br>
 			<div class="atzeraKontaForm col-md-6 m-auto text-center berdeAtzea">
 				<h2> <i class="material-icons">update</i> Atzera Kontaketa</h2>
 				<div class="row  py-2">
-				<label for="minutes" class="col-3">Minutuak:</label>
-				
+					<label for="minutes" class="col-3">Minutuak:</label>
+
 					<div class="col-3">
-				<input type="number" id="minutes" min="0" value="1" class="form-control">
-				</div>
-			
-				<label for="seconds" class="col-3">Segunduak:</label>
+						<input type="number" id="minutes" min="0" value="1" class="form-control">
+					</div>
+
+					<label for="seconds" class="col-3">Segunduak:</label>
 					<div class="col-3">
-				<select id="seconds" class="form-control">
-					<option value="0">0</option>
-					<option value="10">10</option>
-					<option value="20">20</option>
-					<option value="30">30</option>
-					<option value="40">40</option>
-					<option value="50">50</option>
-				</select>
-				</div>
+						<select id="seconds" class="form-select">
+							<option value="0">0</option>
+							<option value="10">10</option>
+							<option value="20">20</option>
+							<option value="30">30</option>
+							<option value="40">40</option>
+							<option value="50">50</option>
+						</select>
+					</div>
 				</div>
 				<button id="startBtn">Hasi</button>
 				</br>
@@ -209,37 +209,37 @@ Laida</textarea> </br>
 				<button id="berrabiaraziBtn">Reset</button>
 			</div>
 			<div class="col-md-6 m-auto">
-				<div id="zutabe3" class="text-center">
+				<h1 id="zutabe3" class="text-center display-1">
 					<!-- Hemen atzerakontua ikusiko da -->
-				</div>
+				</h1>
 			</div>
 		</div>
 		<div class="ausazkoa row py-3 ">
 			<div class="ausazkoForm col-md-6 m-auto text-center berdeAtzea">
 				<h2><i class="material-icons">casino</i> Ausazko zenbakia</h2>
-				
+
 				<label for="minZenb" class="col-3">Txikiena:</label>
 				<div class="row justify-content-center">
 					<div class="col-5">
-				
-				<input type="number" id="minZenb" min="0" value="0" class="form-control"> 
-			</div>
-			</div>
+
+						<input type="number" id="minZenb" min="0" value="0" class="form-control">
+					</div>
+				</div>
 				<br><br>
 				<label for="maxZenb" class="col-3">Handiena:</label>
 				<div class="row justify-content-center">
 					<div class="col-5">
-				<input type="number" id="maxZenb" min="0" value="100" class="form-control" >
-			</div>
-			</div>
+						<input type="number" id="maxZenb" min="0" value="100" class="form-control">
+					</div>
+				</div>
 				<br><br>
 				<button id="sortuBtn">Sortu ausazko zenbakia</button>
 				<br><br>
 			</div>
 			<div class="col-md-6 m-auto">
-				<div id="zutabe4" class="text-center">
+				<h1 id="zutabe4" class="text-center">
 					<!-- ausazko zenbakia erakusteko-->
-				</div>
+				</h1>
 			</div>
 		</div>
 
@@ -265,28 +265,28 @@ Laida</textarea> </br>
 
 	<script>
 		function taldeakSortu() {
-		
+
 			let izenak = document.getElementById("izenak").value.trim().split("\n");
 			let taldeIntegranteak = parseInt(document.getElementById("talde-integranteak").value);
 			let taldeak = [];
 
 			// Izenak taldeetan banatu
-			while (izenak.length > 0 ) {
+			while (izenak.length > 0) {
 				let taldea = [];
-				for (var i = 0; i < taldeIntegranteak && izenak.length>0; i++) {
-						let aleatoriokoIndizea = Math.floor(Math.random() * izenak.length);
-						taldea.push(izenak[aleatoriokoIndizea].trim());
-						izenak.splice(aleatoriokoIndizea, 1);
+				for (var i = 0; i < taldeIntegranteak && izenak.length > 0; i++) {
+					let aleatoriokoIndizea = Math.floor(Math.random() * izenak.length);
+					taldea.push(izenak[aleatoriokoIndizea].trim());
+					izenak.splice(aleatoriokoIndizea, 1);
 				}
 				taldeak.push(taldea);
 			}
 
 			// Taldeen zerrenda erakutsi orrialdean
-			function taldeenHTML(taldeak){
-				
-				return taldeak.map((taldea,index)=>`
+			function taldeenHTML(taldeak) {
+
+				return taldeak.map((taldea, index) => `
 				<div>
-					<strong>${index +1}.Taldea:</strong>
+					<strong>${index + 1}.Taldea:</strong>
 					${taldea.join(' | ')}
 				</div> </br>`).join('')
 			}
@@ -314,7 +314,7 @@ Laida</textarea> </br>
 			timeLeft = minutes * 60 + seconds;
 
 			timer = setInterval(function () {
-				timeLeft=denboraPasa(false,timeLeft)
+				timeLeft = denboraPasa(false, timeLeft)
 				if (timeLeft <= 0) {
 					clearInterval(timer);
 					startBtn.innerHTML = "Berabiarazi";
@@ -347,16 +347,16 @@ Laida</textarea> </br>
 			resetTimer();
 			hasieraGeldituBtn.innerHTML = "Gelditu";
 			kronometroa = setInterval(function () {
-				denbora=denboraPasa(true,denbora)
+				denbora = denboraPasa(true, denbora)
 			}, 1000);
 		}
 
-		function denboraPasa(aurrera,denbora){
-			aurrera?denbora++:denbora--;
+		function denboraPasa(aurrera, denbora) {
+			aurrera ? denbora++ : denbora--;
 			let minutuak = Math.floor(denbora / 60);
-				let segunduak = denbora % 60;
-				document.getElementById("zutabe3").innerHTML = denbora>=0?`${minutuak < 10 ? "0" : ""}${minutuak}:${segunduak < 10 ? "0" : ""}${segunduak}`:"00:00";
-				return denbora;
+			let segunduak = denbora % 60;
+			document.getElementById("zutabe3").innerHTML = denbora >= 0 ? `${minutuak < 10 ? "0" : ""}${minutuak}:${segunduak < 10 ? "0" : ""}${segunduak}` : "00:00";
+			return denbora;
 		}
 		function geldituKronometroa() {
 			hasieraGeldituBtn.innerHTML = "Hasiera";
