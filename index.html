@@ -36,10 +36,10 @@
 
 
 
-		input[type=number] {
+		/* input[type=number] {
 			font-size: 2em;
 			padding: 10px;
-		}
+		} */
 
 		button {
 			font-family: inherit;
@@ -88,7 +88,7 @@
 
 		#zutabe3 {
 
-			font-size: 180px;
+			font-size: 12em;
 			color: #FFFFFF;
 			background: #FFFFFF;
 			text-shadow: 2px 2px 0 #4CAF50, 2px -2px 0 #4CAF50, -2px 2px 0 #4CAF50, -2px -2px 0 #4CAF50, 2px 0px 0 #4CAF50, 0px 2px 0 #4CAF50, -2px 0px 0 #4CAF50, 0px -2px 0 #4CAF50;
@@ -98,12 +98,12 @@
 
 		#zutabe4 {
 			color: #4CAF50;
-			font-size: 180px;
+			font-size: 12em;
 		}
 	</style>
 </head>
 
-<body>
+<body >
 
 	<div id="burua">
 		<h1> <i class="material-icons">pending_actions</i> irakasle-app - 0.91 beta</h1>
@@ -150,9 +150,11 @@ Maria
 Markel	
 Leire
 Laida</textarea> </br>
-
+							
 					<label for="talde-integranteak">Taldeko kide kopurua:</label>
-					<select id="talde-integranteak">
+					<div class="row justify-content-center py-2">
+					<div class="col-5">
+					<select id="talde-integranteak" class="form-control text-center">
 						<option value="2">2</option>
 						<option value="3">3</option>
 						<option value="4">4</option>
@@ -163,7 +165,8 @@ Laida</textarea> </br>
 						<option value="9">9</option>
 						<option value="10">10</option>
 					</select>
-
+				</div>
+				</div>
 					<button type="button" onclick="taldeakSortu()">Taldeak Sortu</button><br>
 					<button id="randomNameBtn" type="button" onclick="selectRandomName()">Ausazko aukeraketa</button>
 				</form>
@@ -180,10 +183,16 @@ Laida</textarea> </br>
 		<div class="atzeraKonta row py-3 ">
 			<div class="atzeraKontaForm col-md-6 m-auto text-center berdeAtzea">
 				<h2> <i class="material-icons">update</i> Atzera Kontaketa</h2>
-				<label for="minutes">Minutuak:</label>
-				<input type="number" id="minutes" min="0" value="1" style="width:3em;height:1px;font-size:1em">
-				<label for="seconds">Segunduak:</label>
-				<select id="seconds">
+				<div class="row  py-2">
+				<label for="minutes" class="col-3">Minutuak:</label>
+				
+					<div class="col-3">
+				<input type="number" id="minutes" min="0" value="1" class="form-control">
+				</div>
+			
+				<label for="seconds" class="col-3">Segunduak:</label>
+					<div class="col-3">
+				<select id="seconds" class="form-control">
 					<option value="0">0</option>
 					<option value="10">10</option>
 					<option value="20">20</option>
@@ -191,6 +200,8 @@ Laida</textarea> </br>
 					<option value="40">40</option>
 					<option value="50">50</option>
 				</select>
+				</div>
+				</div>
 				<button id="startBtn">Hasi</button>
 				</br>
 				<h2><i class="material-icons">timer</i> Kronometroa </h2>
@@ -198,7 +209,7 @@ Laida</textarea> </br>
 				<button id="berrabiaraziBtn">Reset</button>
 			</div>
 			<div class="col-md-6 m-auto">
-				<div id="zutabe3">
+				<div id="zutabe3" class="text-center">
 					<!-- Hemen atzerakontua ikusiko da -->
 				</div>
 			</div>
@@ -206,17 +217,27 @@ Laida</textarea> </br>
 		<div class="ausazkoa row py-3 ">
 			<div class="ausazkoForm col-md-6 m-auto text-center berdeAtzea">
 				<h2><i class="material-icons">casino</i> Ausazko zenbakia</h2>
-				<label for="minZenb">Txikiena:</label>
-				<input type="number" id="minZenb" min="0" value="0" style="width:3em;height:1px;font-size:1em">
+				
+				<label for="minZenb" class="col-3">Txikiena:</label>
+				<div class="row justify-content-center">
+					<div class="col-5">
+				
+				<input type="number" id="minZenb" min="0" value="0" class="form-control"> 
+			</div>
+			</div>
 				<br><br>
-				<label for="maxZenb">Handiena:</label>
-				<input type="number" id="maxZenb" min="0" value="100" style="width:3em;height:1px;font-size:1em">
+				<label for="maxZenb" class="col-3">Handiena:</label>
+				<div class="row justify-content-center">
+					<div class="col-5">
+				<input type="number" id="maxZenb" min="0" value="100" class="form-control" >
+			</div>
+			</div>
 				<br><br>
 				<button id="sortuBtn">Sortu ausazko zenbakia</button>
 				<br><br>
 			</div>
 			<div class="col-md-6 m-auto">
-				<div id="zutabe4">
+				<div id="zutabe4" class="text-center">
 					<!-- ausazko zenbakia erakusteko-->
 				</div>
 			</div>
@@ -244,14 +265,15 @@ Laida</textarea> </br>
 
 	<script>
 		function taldeakSortu() {
+		
 			let izenak = document.getElementById("izenak").value.trim().split("\n");
 			let taldeIntegranteak = parseInt(document.getElementById("talde-integranteak").value);
 			let taldeak = [];
 
 			// Izenak taldeetan banatu
-			while (izenak.length > 0 && taldeak.length < taldeIntegranteak) {
+			while (izenak.length > 0 ) {
 				let taldea = [];
-				for (var i = 0; i < taldeIntegranteak; i++) {
+				for (var i = 0; i < taldeIntegranteak && izenak.length>0; i++) {
 						let aleatoriokoIndizea = Math.floor(Math.random() * izenak.length);
 						taldea.push(izenak[aleatoriokoIndizea].trim());
 						izenak.splice(aleatoriokoIndizea, 1);
@@ -261,11 +283,12 @@ Laida</textarea> </br>
 
 			// Taldeen zerrenda erakutsi orrialdean
 			function taldeenHTML(taldeak){
-				return taldeak.map((taldea,izena)=>`
+				
+				return taldeak.map((taldea,index)=>`
 				<div>
 					<strong>${index +1}.Taldea:</strong>
 					${taldea.join(' | ')}
-				</div>`).join('')
+				</div> </br>`).join('')
 			}
 
 			document.getElementById("zutabe2").innerHTML = taldeenHTML(taldeak);
