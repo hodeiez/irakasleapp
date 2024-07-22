@@ -3,7 +3,6 @@
 <html>
 
 <head>
-
 	<meta name="title" content="irakasle_app (irakasleentzako tresnak)">
 	<meta name="description"
 		content="Hezkuntza aplikazioak: talde-sorgailua, kronometroa, atzerako kontaketa eta gehiago arbel digitaleko klase dinamikoetarako. Cookierik gabe, publizitaterik gabe. Azkarra eta erabilerraza.">
@@ -12,7 +11,7 @@
 	<meta name="robots" content="index, follow">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<meta property="og:locale" content="eu_ES" />
-	<meta name="viewport" content="width=device-width"
+	<meta name="viewport" content="width=device-width"/>
 	<link rel="canonical" href="https://www.irakasle.app" />
 
 	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -87,54 +86,8 @@
 			background-color: #E4ffe5;
 		}
 
-		/*
-		#zutabe1 {
-			position:absolute;
-			top:60px;
-			left:10px;
-			width:350px;
-			margin-top:10px;
-			background-color: #E4ffe5;
-			text-align: center;
-                        color: #000000;
-                        background: #E4ffe5;
-                        text-shadow: 2px 2px 0px #FFFFFF, 5px 4px 0px rgba(0,0,0,0.15);
-                        color: #000000;
-		}
-
-		#oina {
-			position:absolute;
-                        z-index: 2;
-			top:70px;
-			left:10px;
-			width:98%;
-			background-color: #E4ffe5;
-			text-align: center;
-			color: black;
-		}
-
-		#orrioina {
-			position:absolute;
-                        z-index: 0;
-			top:915px;
-			left:10px;
-			width:98%;
-			background-color: #E4ffe5;
-			text-align: center;
-			color: black;
-		}
-		#zutabe2 {
-			position:absolute;
-			margin-left:355px;
-			margin-right:20px;
-			margin-top:35px;
-		}
-			*/
 		#zutabe3 {
-			/* 	position:absolute;
-			margin-left:355px;
-			margin-right:20px;
-			margin-top:390px; */
+
 			font-size: 180px;
 			color: #FFFFFF;
 			background: #FFFFFF;
@@ -145,18 +98,12 @@
 
 		#zutabe4 {
 			color: #4CAF50;
-			/* 	position:absolute;
-                        margin-left:355px;
-			margin-right:20px;
-			margin-top:590px; */
 			font-size: 180px;
 		}
 	</style>
 </head>
 
 <body>
-
-
 
 	<div id="burua">
 		<h1> <i class="material-icons">pending_actions</i> irakasle-app - 0.91 beta</h1>
@@ -297,43 +244,39 @@ Laida</textarea> </br>
 
 	<script>
 		function taldeakSortu() {
-			var izenak = document.getElementById("izenak").value.trim().split("\n");
-			var taldeIntegranteak = parseInt(document.getElementById("talde-integranteak").value);
-			var taldeak = [];
+			let izenak = document.getElementById("izenak").value.trim().split("\n");
+			let taldeIntegranteak = parseInt(document.getElementById("talde-integranteak").value);
+			let taldeak = [];
 
 			// Izenak taldeetan banatu
-			while (izenak.length > 0) {
-				var taldea = [];
+			while (izenak.length > 0 && taldeak.length < taldeIntegranteak) {
+				let taldea = [];
 				for (var i = 0; i < taldeIntegranteak; i++) {
-					if (izenak.length > 0) {
-						var aleatoriokoIndizea = Math.floor(Math.random() * izenak.length);
+						let aleatoriokoIndizea = Math.floor(Math.random() * izenak.length);
 						taldea.push(izenak[aleatoriokoIndizea].trim());
 						izenak.splice(aleatoriokoIndizea, 1);
-					}
 				}
 				taldeak.push(taldea);
 			}
 
 			// Taldeen zerrenda erakutsi orrialdean
-			var taldeenHtml = "";
-			for (var i = 0; i < taldeak.length; i++) {
-				taldeenHtml += "<b>" + (i + 1) + ". Taldea:</b>";
-				taldeenHtml += " ";
-				for (var j = 0; j < taldeak[i].length; j++) {
-					taldeenHtml += " " + taldeak[i][j] + " | ";
-				}
-				taldeenHtml += "</br><hr> ";
+			function taldeenHTML(taldeak){
+				return taldeak.map((taldea,izena)=>`
+				<div>
+					<strong>${index +1}.Taldea:</strong>
+					${taldea.join(' | ')}
+				</div>`).join('')
 			}
-			document.getElementById("zutabe2").innerHTML = taldeenHtml;
+
+			document.getElementById("zutabe2").innerHTML = taldeenHTML(taldeak);
 		}
 
 		// ikasle izena ausaz aukeratu
 		function selectRandomName() {
-			var izenak = document.getElementById("izenak").value.trim().split("\n");
-			var randomIndex = Math.floor(Math.random() * izenak.length);
-			var randomName = izenak[randomIndex];
+			let izenak = document.getElementById("izenak").value.trim().split("\n");
+			let randomIndex = Math.floor(Math.random() * izenak.length);
+			let randomName = izenak[randomIndex];
 			alert("Aukeratutako ikaslea: " + randomName);
-			//document.getElementById("zutabe3").innerHTML = "Aukeratutako ikaslea: " + randomName;
 		}
 
 		// Atzera kontaketa
@@ -348,13 +291,9 @@ Laida</textarea> </br>
 			timeLeft = minutes * 60 + seconds;
 
 			timer = setInterval(function () {
-				timeLeft--;
-				let minutesLeft = Math.floor(timeLeft / 60);
-				let secondsLeft = timeLeft % 60;
-				document.getElementById("zutabe3").innerHTML = `${minutesLeft}:${secondsLeft < 10 ? "0" : ""}${secondsLeft}`;
+				timeLeft=denboraPasa(false,timeLeft)
 				if (timeLeft <= 0) {
 					clearInterval(timer);
-					document.getElementById("zutabe3").innerHTML = "00:00";
 					startBtn.innerHTML = "Berabiarazi";
 				}
 			}, 1000);
@@ -385,13 +324,17 @@ Laida</textarea> </br>
 			resetTimer();
 			hasieraGeldituBtn.innerHTML = "Gelditu";
 			kronometroa = setInterval(function () {
-				denbora++;
-				let minutuak = Math.floor(denbora / 60);
-				let segunduak = denbora % 60;
-				document.getElementById("zutabe3").innerHTML = `${minutuak < 10 ? "0" : ""}${minutuak}:${segunduak < 10 ? "0" : ""}${segunduak}`;
+				denbora=denboraPasa(true,denbora)
 			}, 1000);
 		}
 
+		function denboraPasa(aurrera,denbora){
+			aurrera?denbora++:denbora--;
+			let minutuak = Math.floor(denbora / 60);
+				let segunduak = denbora % 60;
+				document.getElementById("zutabe3").innerHTML = denbora>=0?`${minutuak < 10 ? "0" : ""}${minutuak}:${segunduak < 10 ? "0" : ""}${segunduak}`:"00:00";
+				return denbora;
+		}
 		function geldituKronometroa() {
 			hasieraGeldituBtn.innerHTML = "Hasiera";
 			clearInterval(kronometroa);
